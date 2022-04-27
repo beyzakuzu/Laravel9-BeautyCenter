@@ -64,9 +64,9 @@
                                         <td>{{$rs->description}}</td>
                                         <td>{{$rs->image}} </td>
                                         <td>{{$rs->status}} </td>
-                                        <td><a href="/admin/category/edit"{{$rs->id}}" class="btn btn-outline-primary" >Edit</a> </td>
-                                        <td><a href="/admin/category/delete"{{$rs->id}}" class="btn btn-outline-danger" >Delete</a> </td>
-                                        <td><a href="/admin/category/show"{{$rs->id}}" class="btn btn-outline-success" >Show</a> </td>
+                                        <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-outline-primary" >Edit</a> </td>
+                                        <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-outline-danger" >Delete</a> </td>
+                                        <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-outline-success" >Show</a> </td>
                                     </tr>
 
                                     @endforeach
