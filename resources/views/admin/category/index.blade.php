@@ -11,8 +11,9 @@
     <!-- ============================================================== -->
     <div class="page-breadcrumb">
         <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                <h3 class="page-title">Category List</h3>
+            <div class="col-sm-2 d-flex no-block align-items-center">
+                <a href="/admin/category/create"class="btn btn-block btn-outline-danger btn-lg" >Add Category</a>
+            </div>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -21,7 +22,7 @@
                         </ol>
                     </nav>
                 </div>
-            </div>
+
         </div>
     </div>
     <!-- ============================================================== -->
