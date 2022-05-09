@@ -14,7 +14,7 @@
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Library</li>
                     </ol>
                 </nav>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <form class="form-horizontal" action="/admin/category/store" method="post">
+                    <form class="form-horizontal" action="{{route('admin.category.create')}}" method="post">
                         @csrf
                     <div class="card-body">
                         <h4 class="card-title">Add Category</h4>
