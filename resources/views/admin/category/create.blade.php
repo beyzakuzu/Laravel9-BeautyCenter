@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <form class="form-horizontal" action="{{route('admin.category.create')}}" method="post">
+                    <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                     <div class="card-body">
                         <h4 class="card-title">Add Category</h4>
@@ -53,9 +53,7 @@
                                     <input type="file" class="custom-file-input" name="image">
                                     <label class="custom-file-label" for="exampleInputFile">Choose Image File</label>
                                 </div>
-                                <div class="border-top">
-                                    <button type="button" class="btn btn-primary">Upload</button>
-                                </div>
+
                             </div>
                         </div>
                         <div class="form-group row">
