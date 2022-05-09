@@ -25,13 +25,26 @@
     <div class="container-fluid">
 
 
-        <div class="row">
+        <div class="card-primary">
             <div class="col-12">
                 <div class="card">
                     <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <div class="card-header">
+                            <h4 class="card-title">Category Elements</h4>
+                        </div>
+
                     <div class="card-body">
-                        <h4 class="card-title">Add Category</h4>
+                        <div class="form-group"
+                             <label> Parent Category </label>
+
+                        <select class="form-control-file" name="parent_id">
+                            <option value="0" selected="selected">Main Category</option>
+                            @foreach($data as $rs)
+                                <option value="{{$rs -> id}}"> {{ \App\Http\Controllers\AdminPanel\CategoryController:: getParentsTree($rs,$rs ->title) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                         <div class="form-group row">
                             <label for="fname" >Title</label>
                             <input type="text" class="form-control"  name= "title" placeholder="Title">
