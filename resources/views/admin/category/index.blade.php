@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Category List')
 
 
 
@@ -37,7 +37,7 @@
                     <div class="border-top">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Category List</h4>
+                                <h4 class="text-primary"><b>Category List</b></h4>
                             </div>
 
                             <div class="card-body">
