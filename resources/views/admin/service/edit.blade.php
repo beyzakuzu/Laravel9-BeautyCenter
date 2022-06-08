@@ -2,9 +2,7 @@
 
 @section('title', 'Edit Service:'.$data->title)
 
-@section('head')
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
-@endsection
+
 
 
 @section('content')
@@ -82,16 +80,6 @@
                                 <label for="lname" >Detail</label>
                                 <textarea class="form-control" name="detail"> {{$data->detail}}
                             </textarea>
-                           <script>
-                               ClassicEditor
-                                   .create( document.querySelector( '#detail' ) )
-                                   .then( editor => {
-                                       console.log( editor );
-                                   } )
-                                   .catch( error => {
-                                       console.error( error );
-                                   } );
-                           </script>
                        </div>
                         </div>
                         <div class="form-group row">
