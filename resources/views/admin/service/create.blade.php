@@ -1,6 +1,9 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Add Service')
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+@endsection
 
 
 
@@ -61,22 +64,27 @@
                             <input type="number" class="form-control" name="price" value="0">
                         </div>
                         <div class="form-group row">
-                            <label for="lname" >Quantity</label>
-                            <input type="number" class="form-control" name="quantity" value="0">
+                            <label for="lname" >Days</label>
+                            <input type="text" class="form-control" name="day" placeholder="Days">
                         </div>
-                        <div class="form-group row">
-                            <label for="lname" >Minimum Quantity</label>
-                            <input type="number" class="form-control" name="minquantity" value="0">
-                        </div>
-                        <div class="form-group row">
-                            <label for="lname" >Tax %</label>
-                            <input type="number" class="form-control" name="tax" value="0">
-                        </div>
+
+
                         <div class="form-group row">
                             <label for="lname" >Detail</label>
-                            <textarea class="form-control" name="detail">
+                            <textarea class="form-control" id="detail" name="detail">
 
                             </textarea>
+
+                            <script>
+                                ClassicEditor
+                                    .create( document.querySelector( '#detail' ) )
+                                    .then( editor => {
+                                        console.log( editor );
+                                    } )
+                                    .catch( error => {
+                                        console.error( error );
+                                    } );
+                            </script>
 
                         </div>
 

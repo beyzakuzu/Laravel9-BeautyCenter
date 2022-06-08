@@ -2,7 +2,9 @@
 
 @section('title', 'Edit Service:'.$data->title)
 
-
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+@endsection
 
 
 @section('content')
@@ -67,27 +69,30 @@
                             <label for="lname" >Description</label>
                             <input type="text" class="form-control" name="description" {{$data->description}}>
                         </div>
-                            <div class="form-group row">
+                       <div class="form-group row">
                                 <label for="lname" >Price</label>
                                 <input type="number" class="form-control" name="price" value={{$data->price}}>
-                            </div>
-                            <div class="form-group row">
-                                <label for="lname" >Quantity</label>
-                                <input type="number" class="form-control" name="quantity" value={{$data->quantity}}>
-                            </div>
-                            <div class="form-group row">
-                                <label for="lname" >Minimum Quantity</label>
-                                <input type="number" class="form-control" name="minquantity" value={{$data->minquantity}}>
-                            </div>
-                            <div class="form-group row">
-                                <label for="lname" >Tax %</label>
-                                <input type="number" class="form-control" name="tax" value={{$data->tax}}>
-                            </div>
-                            <div class="form-group row">
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" >Days</label>
+                            <input type="text" class="form-control" name="day" value={{$data->day}}>
+                        </div>
+
+                       <div class="form-group row">
                                 <label for="lname" >Detail</label>
                                 <textarea class="form-control" name="detail"> {{$data->detail}}
                             </textarea>
-                            </div>
+                           <script>
+                               ClassicEditor
+                                   .create( document.querySelector( '#detail' ) )
+                                   .then( editor => {
+                                       console.log( editor );
+                                   } )
+                                   .catch( error => {
+                                       console.error( error );
+                                   } );
+                           </script>
+                       </div>
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputFile" >Image</label>

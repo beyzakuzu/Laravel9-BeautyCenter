@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers\AdminPanel;
 
+
+use App\Models\Category;
 use App\Models\Image;
+use App\Models\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class ImageController extends Controller
@@ -17,9 +22,14 @@ class ImageController extends Controller
     public function index($pid)
     {
         //
-        $data = Image::where($pid);
+        $service= Service::find($pid);
+        //$images = Image::where('service_id',$pid);
+        $images = DB::table('images')->where('service_id',$pid)->get();
+
         return view('admin.image.index',[
-            'data' => $data
+            'service' => $service,
+            'images' => $images,
+
         ]);
 
 
@@ -27,13 +37,9 @@ class ImageController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create($pid)
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,7 +49,14 @@ class ImageController extends Controller
      */
     public function store(Request $request,$pid)
     {
-        //
+        $data = new Image();
+        $data->service_id = $pid;
+        $data->title = $request->title;
+        if ($request->file('image')){
+            $data->image= $request->file('image')->store('images');
+        }
+        $data->save();
+        return redirect()->route('admin.image.index',['pid'=>$pid]);
     }
 
     /**
@@ -88,6 +101,12 @@ class ImageController extends Controller
      */
     public function destroy($pid,$id)
     {
-        //
+        $data= Image::find($id);
+        if ($data->image && Storage::disk('public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect()->route('admin.image.index',['pid'=>$pid]);
+
     }
 }

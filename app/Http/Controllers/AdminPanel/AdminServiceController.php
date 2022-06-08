@@ -62,9 +62,7 @@ class AdminServiceController extends Controller
         $data->description = $request->description;
         $data->detail = $request->detail;
         $data->price = $request->price;
-        $data->quantity = $request->quantity;
-        $data->minquantity = $request->minquantity;
-        $data->tax = $request->tax;
+        $data->day = $request->day;
         $data->status = $request->status;
         if ($request->file('image')){
             $data->image= $request->file('image')->store('images');
@@ -126,15 +124,14 @@ class AdminServiceController extends Controller
         $data->description = $request->description;
         $data->detail = $request->detail;
         $data->price = $request->price;
-        $data->quantity = $request->quantity;
-        $data->minquantity = $request->minquantity;
-        $data->tax = $request->tax;
+        $data->day = $request->day;
         $data->status = $request->status;
         if ($request->file('image')){
             $data->image= $request->file('image')->store('images');
         }
         $data->save();
         return redirect('admin/service');
+
 
 
     }

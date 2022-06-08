@@ -21,11 +21,9 @@ return new class extends Migration
             $table->string('keywords')->nullable();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
-            $table->text('detail')->nullable();
+            $table->longText('detail')->nullable();
             $table->float('price')->nullable();
-            $table->integer('quantity')->nullable();
-            $table->integer('minquantity')->nullable();
-            $table->integer('tax')->nullable();
+            $table->text('day')->nullable();
             $table->string('status')->default('False');
             $table->timestamps();
         });

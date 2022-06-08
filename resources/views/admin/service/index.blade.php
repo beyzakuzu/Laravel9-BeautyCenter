@@ -3,8 +3,6 @@
 @section('title', 'Service List')
 
 
-
-
 @section('content')
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -48,7 +46,7 @@
                                         <th <span class="text-info"><b>Category</b></span>
                                         <th <span class="text-info"><b>Title</b></span>
                                         <th <span class="text-info"><b>Price</b></span>
-                                        <th <span class="text-info"><b>Quantity</b></span>
+                                        <th <span class="text-info"><b>Days</b></span>
                                         <th <span class="text-info"><b>Image</b></span>
                                         <th <span class="text-info"><b>Image Gallery</b></span>
                                         <th <span class="text-info"><b>Status</b></span>
@@ -64,14 +62,15 @@
                                         <td>{{ \App\Http\Controllers\AdminPanel\CategoryController:: getParentsTree($rs->category,$rs->category->title) }} </td>
                                         <td>{{$rs->title}} </td>
                                         <td>{{$rs->price}} </td>
-                                        <td>{{$rs->quantity}} </td>
+                                        <td>{{$rs->day}} </td>
                                         <td>
                                             @if ($rs->image)
                                             <img src="{{Storage::url($rs->image)}}" style="height: 40px">
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{route('admin.image.index',['pid'=>$rs->id] )}}">
+                                            <a href="{{route('admin.image.index',['pid'=>$rs->id] )}}"
+                                                onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
                                             <img src="{{asset('assets')}}/admin/plugins/images/gallery.png" alt="user"  width="40">
                                             </a>
                                         </td>
