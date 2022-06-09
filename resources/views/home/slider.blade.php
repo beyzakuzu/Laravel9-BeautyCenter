@@ -22,7 +22,7 @@
         @endforeach
 
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('assets')}}/img/carousel-2.jpg" alt="">
+            <img class="img-fluid" src="{{asset('assets')}}/img/service-8.jpg"  style="width: 1920px; height: 855px">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
                 <div class="container">
                     <div class="row justify-content-center">
