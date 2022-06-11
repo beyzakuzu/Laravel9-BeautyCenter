@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function Symfony\Component\String\s;
 
 class HomeController extends Controller
 {
+    public static function maincategorylist()
+    {
+     return Category::where('parent_id','=',0)->with('children')->get();
+
+    }
+
     //
     public function index()
     {
@@ -34,6 +40,20 @@ class HomeController extends Controller
             'images'=>$images
         ]);
     }
+    public function categoryservice($id)
+    {
+echo"dsdd";
+exit();
+
+        $data= Service::find($id);
+        $images = DB::table('images')->where('service_id',$id)->get();
+
+        return view('home.service',[
+            'data'=>$data,
+            'images'=>$images
+        ]);
+    }
+
 
 
 

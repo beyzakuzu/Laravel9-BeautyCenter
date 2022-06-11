@@ -10,7 +10,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-8 text-center">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown">Güzellik Merkezine Hoş Geldiniz</h5>
-                            <h1 {{$rs->title}}</h1>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">{{$rs->title}}</h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-2">Kendinizi Yenileyin</p>
                             <a href="{{route('service',['id'=>$rs->id])}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Daha Fazla Bilgi</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight"> Online Randevu</a>
