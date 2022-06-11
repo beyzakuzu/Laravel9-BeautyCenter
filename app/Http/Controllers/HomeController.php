@@ -4,19 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use function Symfony\Component\String\s;
 
 class HomeController extends Controller
 {
     //
     public function index()
     {
+        $page='home';
         $sliderdata=Service::limit(4)->get();
         $servicelist1=Service::limit(6)->get();
         return view('home.index',[
+            'page'=>$page,
             'sliderdata'=>$sliderdata,
             'servicelist1'=>$servicelist1,
         ]);
      }
+
+    public function service($id)
+    {
+
+
+        $data= Service::find($id);
+        $images = DB::table('images')->where('service_id',$id)->get();
+
+        return view('home.service',[
+            'data'=>$data,
+            'images'=>$images
+        ]);
+    }
+
 
 
 

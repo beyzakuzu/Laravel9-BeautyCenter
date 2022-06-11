@@ -1,13 +1,15 @@
 @extends('layouts.frontbase')
 
 @section('title', 'Beauty Center')
-@section('slider')
-@include('home.slider')
-@endsection
+
+
 
 
 
 @section('content')
+@section('slider')
+    @include("home.slider")
+@show
     <!-- Feature Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -116,12 +118,13 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
                         <div class="overflow-hidden">
+
                             <img class="img-fluid" src="{{Storage::url($rs->image)}}" style="height: 300px ; width:500px">
                         </div>
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">{{$rs->price}} TL </h4>
                             <p>{{$rs->title}}</p>
-                            <a class="fw-medium" href="">İnceleyin<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="{{route('service',['id'=>$rs->id])}}">İnceleyin<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
